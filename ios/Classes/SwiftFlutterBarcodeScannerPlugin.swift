@@ -153,11 +153,11 @@ class BarcodeScannerViewController: UIViewController {
                                       AVMetadataObject.ObjectType.code128,
                                       AVMetadataObject.ObjectType.ean8,
                                       AVMetadataObject.ObjectType.ean13,
-                                      AVMetadataObject.ObjectType.aztec,
+                                    //   AVMetadataObject.ObjectType.aztec,
                                       AVMetadataObject.ObjectType.pdf417,
-                                      AVMetadataObject.ObjectType.itf14,
+                                    //   AVMetadataObject.ObjectType.itf14,
                                     //   AVMetadataObject.ObjectType.dataMatrix,
-                                      AVMetadataObject.ObjectType.interleaved2of5,
+                                    //   AVMetadataObject.ObjectType.interleaved2of5,
                                     //   AVMetadataObject.ObjectType.qr
                                       ]
     public var delegate: ScanBarcodeDelegate? = nil
