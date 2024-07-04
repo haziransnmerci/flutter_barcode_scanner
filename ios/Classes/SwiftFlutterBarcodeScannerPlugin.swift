@@ -225,7 +225,7 @@ class BarcodeScannerViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.isOrientationPortrait = isLandscape
+        self.isOrientationPortrait = true
         self.initUIComponents()
     }
     
@@ -554,10 +554,16 @@ class BarcodeScannerViewController: UIViewController {
         layer.videoOrientation = orientation
     }
     
-    var isLandscape: Bool {
-        return UIDevice.current.orientation.isValidInterfaceOrientation
-            ? UIDevice.current.orientation.isPortrait
-            : UIApplication.shared.statusBarOrientation.isPortrait
+   var isPortrait: Bool {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.windows
+                .first?
+                .windowScene?
+                .interfaceOrientation
+                .isPortrait ?? false
+        } else {
+            return UIApplication.shared.statusBarOrientation.isPortrait
+        }
     }
     
     private func launchApp(decodedURL: String) {
